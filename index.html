@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>3-Card Tarot Reading</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  background: linear-gradient(135deg, #1d0b3a, #3f2b96);
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background: rgba(0,0,0,0.4);
+  padding: 30px;
+  border-radius: 16px;
+  width: 360px;
+  text-align: center;
+}
+
+button {
+  padding: 12px 22px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  background-color: #f4c430;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.spread {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.card {
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 10px;
+  min-height: 130px;
+  font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+  <h1>🔮 3-Card Tarot Reading</h1>
+  <p>Past • Present • Future</p>
+
+  <button onclick="drawSpread()">Draw Cards</button>
+
+  <div class="spread">
+    <div class="card" id="past"></div>
+    <div class="card" id="present"></div>
+    <div class="card" id="future"></div>
+  </div>
+</div>
+
+<script>
+const cards = [
+  "The Fool – New beginnings",
+  "The Magician – Taking action",
+  "The High Priestess – Inner voice",
+  "The Empress – Growth and care",
+  "The Emperor – Structure",
+  "The Lovers – Meaningful choices",
+  "The Chariot – Determination",
+  "Strength – Courage",
+  "The Hermit – Reflection",
+  "The Star – Hope"
+];
+
+function drawSpread() {
+  const shuffled = [...cards].sort(() => 0.5 - Math.random());
+
+  document.getElementById("past").textContent =
+    "Past: " + shuffled[0];
+
+  document.getElementById("present").textContent =
+    "Present: " + shuffled[1];
+
+  document.getElementById("future").textContent =
+    "Future: " + shuffled[2];
+}
+</script>
+</body>
+</html>
